@@ -1,4 +1,4 @@
-const facultyTypes = [
+const fieldTypes = [
   {
     _id: 1,
     name: 'Information Technology',
@@ -25,4 +25,4 @@ const facultyTypes = [
   },
 ];
 
-module.exports = facultyTypes;
+module.exports = fieldTypes;
