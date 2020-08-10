@@ -44,7 +44,7 @@ router.post('/', (req, res) => {
   });
 });
 
-router.put('/:id', getStudent, (req, res) => {
+router.put('/:id', (req, res) => {
   Student.findById(req.params.id, (err, student) => {
     if (student == null) {
       return res.status(404).json({ message: 'Cannot find student' });
@@ -62,8 +62,7 @@ router.put('/:id', getStudent, (req, res) => {
   });
 });
 
-//DONE
-router.delete('/:id', async (req, res) => {
+router.delete('/:id', (req, res) => {
   req.student.remove((err) => {
     if (err) {
       return res.send(err);
