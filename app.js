@@ -1,11 +1,12 @@
 const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
-const Student = require('./models/studentModel');
+var cors = require('cors');
 
 mongoose.connect('mongodb://localhost/studentAPI');
-const db = mongoose.connection;
+mongoose.connection;
 
+app.use(cors());
 app.use('/students', require('./routes/students'));
 app.use('/dict', require('./routes/dictionary'));
 

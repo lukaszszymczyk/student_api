@@ -1,6 +1,10 @@
 const express = require('express');
 const router = express.Router();
 const Student = require('../models/studentModel');
+const bodyParser = require('body-parser');
+
+// create application/json parser
+const jsonParser = bodyParser.json();
 
 router.get('/', (req, res) => {
   const skip = parseInt(req.query.skip);
@@ -28,7 +32,8 @@ router.get('/:id', (req, res) => {
   });
 });
 
-router.post('/', (req, res) => {
+router.post('/', jsonParser, (req, res) => {
+  console.log(req.body);
   const student = new Student({
     full_name: req.body.full_name,
     semester: req.body.semester,
@@ -38,6 +43,7 @@ router.post('/', (req, res) => {
   });
   student.save((err, newStudent) => {
     if (err) {
+      console.log('err');
       return res.send(err);
     }
     return res.status(201).json(newStudent);

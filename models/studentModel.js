@@ -5,7 +5,19 @@ const studentModel = new mongoose.Schema({
     type: String,
     required: true,
   },
-  description: {
+  semester: {
+    type: String,
+    required: true,
+  },
+  field_of_study: {
+    type: String,
+    required: true,
+  },
+  faculty: {
+    type: String,
+    required: true,
+  },
+  university: {
     type: String,
     required: true,
   },
